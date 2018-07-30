@@ -17,8 +17,8 @@ $boot = function ($_EXTKEY) {
         $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['solr']['postProcessFetchRecordsForIndexQueueItem'][] =
             Portrino\PxShopware\Service\Solr\Hooks\Queue::class . '->postProcessFetchRecordsForIndexQueueItem';
 
-        $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][\ApacheSolrForTypo3\Solr\IndexQueue\Queue::class] = [
-            'className' => \Portrino\PxShopware\Xclass\Solr\IndexQueue\Queue::class
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][\ApacheSolrForTypo3\Solr\Domain\Index\Queue\QueueItemRepository::class] = [
+            'className' => \Portrino\PxShopware\Xclass\Solr\Domain\Index\Queue\QueueItemRepository::class
         ];
     }
 
