@@ -134,7 +134,7 @@ class AbstractShopwareIndexer extends Indexer
         }
 
         // add clean documents to solr index core
-        $response = $this->solr->addDocuments($documents);
+        $response = $this->solr->getWriteService()->addDocuments($documents);
         $itemIndexed = $response->getHttpStatus() === 200;
 
         $this->log($item, $documents, $response);
@@ -207,7 +207,7 @@ class AbstractShopwareIndexer extends Indexer
      */
     protected function getBaseDocument(Item $item, array $itemRecord)
     {
-        $site = GeneralUtility::makeInstance(Site::class, $item->getRootPageUid());
+        $site = $item->getSite();
 
         /** @var $document \Apache_Solr_Document */
         $document = GeneralUtility::makeInstance(\Apache_Solr_Document::class);
