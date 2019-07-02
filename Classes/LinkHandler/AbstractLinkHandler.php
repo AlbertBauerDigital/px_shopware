@@ -62,7 +62,7 @@ class AbstractLinkHandler extends \TYPO3\CMS\Recordlist\LinkHandler\AbstractLink
         if (!$linkParts['url']) {
             return false;
         }
-        $url = rawurldecode($linkParts['url']);
+        $url = rawurldecode($linkParts['url']['url']);
         if (StringUtility::beginsWith($url, $this->getPrefix())) {
             $id = intval(substr($url, strlen($this->getPrefix())));
             $this->object = $this->client->findById($id);
